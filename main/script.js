@@ -148,8 +148,8 @@ function main() {
 						// if numberToCheck is less than existenceConfirmed, set it to existenceConfirmed
 						if (numberToCheck < existenceConfirmed) {
 							numberToCheck = existenceConfirmed;
-							// then set step to a random number between 1 and decrementStep
-							step = Math.floor(Math.random() * decrementStep) + 1;
+							// then set step to a random number between 1 and 1000
+							step = Math.floor(Math.random() * 1000) + 1;
 							numberToCheck += step;
 						}
 					}
