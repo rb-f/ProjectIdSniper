@@ -139,12 +139,12 @@ function main() {
 						step = Math.ceil(step);
 						step += 1;
 					} else {
-						// if same, set halfen step and round it up, then subtract numberToCheck by decrementStep, then increase the value of decrementStep
+						// if same, set halfen step and round it up, then subtract numberToCheck by decrementStep, then double the value of decrementStep
 						step = Math.ceil(step / 2);
 						numberToCheck -= decrementStep;
 						// subtract numberToCheck by a random number between 1 and 10.
 						numberToCheck -= Math.floor(Math.random() * 10) + 1;
-						decrementStep += 1;
+						decrementStep *= 2;
 						// if numberToCheck is less than existenceConfirmed, set it to existenceConfirmed
 						if (numberToCheck < existenceConfirmed) {
 							numberToCheck = existenceConfirmed;
