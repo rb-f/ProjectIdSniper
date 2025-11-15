@@ -4,6 +4,8 @@
 	 - Accessible focus states, responsive breakpoints
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
 :root{
 	--bg: #0f1724; /* deep navy */
 	--panel: #0b1220; /* slightly lighter */
@@ -26,7 +28,7 @@ body{
 							radial-gradient(800px 400px at 90% 90%, rgba(6,182,212,0.06), transparent 8%),
 							var(--bg);
 	color:#e6eef8;
-	font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	font-family: "Sora", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
 	line-height:1.45;

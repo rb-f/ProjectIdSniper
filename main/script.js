@@ -44,6 +44,7 @@ getImageBlob(nonexisty)
     });
 
 // see whether the fetched image has the same contents as nonexisty
+let sames = 0;
 let numberToCheck = 1243000000;
 let milestone = null;
 let step = 4096;
@@ -92,7 +93,7 @@ function main() {
 						// set existenceConfirmed to numberToCheck
 						existenceConfirmed = numberToCheck;
 						// update displayed result
-						document.getElementById('result').textContent = existenceConfirmed;
+						document.getElementById('result').textContent = formatNumber(existenceConfirmed);
 						// compute and display how much `existenceConfirmed` increased per second
 						try {
 							const now = Date.now();
@@ -105,8 +106,8 @@ function main() {
 							}
 							// add speedVal to speeds array
 							speeds.push(speedVal);
-							// then compute average speed over last 25 entries (5 entries if speed is above 20)
-							if (speeds.length > ((speedVal > 20) ? 5 : 25)) {
+							// then compute average speed over last 25 entries (3 entries if speed is above 20)
+							if (speeds.length > ((speedVal > 20) ? 3 : 25)) {
 								speeds.shift();
 								if (speedVal > 20) {
 									speeds.shift();
@@ -138,6 +139,7 @@ function main() {
 						step *= 2.4;
 						step = Math.ceil(step);
 						step += 1;
+						sames = 0;
 					} else {
 						// if same, set halfen step and round it up, then subtract numberToCheck by decrementStep, then double the value of decrementStep
 						step = Math.ceil(step / 2);
@@ -145,11 +147,12 @@ function main() {
 						// subtract numberToCheck by a random number between 1 and 10.
 						numberToCheck -= Math.floor(Math.random() * 10) + 1;
 						decrementStep *= 2;
+						sames++;
 						// if numberToCheck is less than existenceConfirmed, set it to existenceConfirmed
 						if (numberToCheck < existenceConfirmed) {
 							numberToCheck = existenceConfirmed;
-							// then set step to a random number between 1 and 1000
-							step = Math.floor(Math.random() * 1000) + 1;
+							// then set step to a random number between 1 and sames
+							step = Math.floor(Math.random() * sames) + 1;
 							numberToCheck += step;
 						}
 					}
@@ -158,6 +161,7 @@ function main() {
 				});
 		}).catch(error => {
 			console.error('Error:', error);
+			document.getElementById('result').textContent = "Error";
 		});
 }
 
