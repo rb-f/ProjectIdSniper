@@ -45,7 +45,7 @@ getImageBlob(nonexisty)
 
 // see whether the fetched image has the same contents as nonexisty
 let sames = 0;
-let numberToCheck = 1243000000;
+let numberToCheck = 1329990000;
 let milestone = null;
 let step = 4096;
 let decrementStep = 1;
